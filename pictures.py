@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 import sys
 from PIL import Image
@@ -15,12 +17,14 @@ for file in os.listdir(sys.argv[1]):
         
         compress_im= im.resize((int((w/4)), int((h/4))), Image.ANTIALIAS)
         
-        compress_im.save(sys.argv[1] + 'small_' + file, quality=80)
+        compress_im.save(sys.argv[1] + 'small_' + file, quality=70)
         
         compressed.append('small_' + file)
         full.append(file)
+        print(file)
 
-
+full.sort()
+compressed.sort()
 file = sys.argv[1] + "index.html"
 f= open(file, "a")
 
